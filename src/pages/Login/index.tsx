@@ -32,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+interface Props {
+   setToken: Function
+}
+
+export default function Login(props: Props) {
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
@@ -57,6 +61,8 @@ const Login = () => {
     } else {
       localStorage.clear();
     }
+
+    props.setToken("TEST_TOKEN");
   };
 
   return (
@@ -119,7 +125,7 @@ const Login = () => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="#" variant="body1">
+              <Link href="sign-up" variant="body1">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -129,5 +135,3 @@ const Login = () => {
     </Container>
   );
 }
-
-export default Login;
