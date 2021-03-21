@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import restrictionsData from '../../services/CovidRestrictionsService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import moment from 'moment';
 
 
 export default function RestrictionsData() {
@@ -27,8 +26,10 @@ export default function RestrictionsData() {
               </Row>
               <Row>
                 <Col md={12}>
-                <h6 className="card-title font-weight-bold">Capacity: {0}</h6>
-                <h6 className="card-title font-weight-bold">Estimated Threshold: {0}%</h6>
+                <h6 className="card-title font-weight-bold">Positive Tests: {data?.positiveTests}</h6>
+                <h6 className="card-title font-weight-bold">Total Tested: {data?.totalTested}</h6>
+                <h6 className="card-title font-weight-bold">Daily Test Positivity: {data?.dailyTestPositivity}</h6>
+                <h6 className="card-title font-weight-bold">Seven Day Average: {data?.sevenDayAvg}</h6>
                 </Col>
               </Row>
             </div>
