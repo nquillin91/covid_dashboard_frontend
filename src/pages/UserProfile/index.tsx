@@ -136,7 +136,7 @@ export default class UserProfile extends React.Component<{}, State> {
 			  <CssBaseline />
 			  <div>
 			    <Typography component="h1" variant="h5">
-			      Sign up
+			      Profile
 			    </Typography>
 			    <form onSubmit={handleSubmit}>
 			      <Grid container spacing={2}>
