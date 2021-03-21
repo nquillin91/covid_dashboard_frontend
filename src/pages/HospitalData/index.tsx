@@ -10,7 +10,7 @@ export default function HospitalData() {
 
   // get latest time update
   const date = new Date();
-  const currentTime = 0;
+  const currentTime = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
   // generate random and compacity wait times
   const getRandomNumber = (maximum: number) =>{
