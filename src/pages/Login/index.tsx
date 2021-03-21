@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 interface Props {
    setToken: Function
 }
-
 export default function Login(props: Props) {
   const classes = useStyles();
 
@@ -62,7 +61,27 @@ export default function Login(props: Props) {
       localStorage.clear();
     }
 
-    props.setToken("TEST_TOKEN");
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "username": email, "password": password })
+    };
+
+    fetch(`https://covid-dashboard-backend-se430.herokuapp.com/login`, requestOptions)
+      .then(response => {
+        response.text().then(text => {
+          const data = text && JSON.parse(text);
+          
+          if (!response.ok) {
+              const error = (data && data.message) || response.statusText;
+              return Promise.reject(error);
+          }
+
+          let tokenStr = 'Bearer ' + data.jwtToken;
+          localStorage.setItem('token', tokenStr);
+          props.setToken(tokenStr);
+        })
+      });
   };
 
   return (
@@ -75,7 +94,7 @@ export default function Login(props: Props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"

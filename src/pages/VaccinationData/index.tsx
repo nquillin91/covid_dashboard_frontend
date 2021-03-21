@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import vaccineInfo from '../../services/VaccinationDataService';
-import ScatterChart from '../../components/ScatterChart';
+//import ScatterChart from '../../components/ScatterChart';
 import moment from 'moment';
 
 // schema

@@ -103,4 +103,23 @@ const vaccineInfo = {
     ]
 };
 
+function getVaccineData() {
+    const requestOptions = { 
+    	method: 'GET',
+    	headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token') }
+    };
+
+    return fetch(`https://covid-dashboard-backend-se430.herokuapp.com/vaccine-data`, requestOptions).then(response => {
+	    response.text().then(text => {
+	      const data = text && JSON.parse(text);
+
+	      return data;
+	    })
+	});
+}
+
+export const vaccinationDataService = {
+    getVaccineData
+};
+
 export default vaccineInfo;

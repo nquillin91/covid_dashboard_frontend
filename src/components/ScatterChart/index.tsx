@@ -19,7 +19,10 @@ import {
 //   amt: 1400,
 //   cnt: 490,
 
-export default class ScatterChart extends PureComponent {
+interface Props {
+   data: any
+}
+export default class ScatterChart extends PureComponent<Props> {
     constructor(props){
         super(props);
     }
@@ -30,7 +33,7 @@ export default class ScatterChart extends PureComponent {
                 <ComposedChart
           width={500}
           height={400}
-          data={data}
+          data={this.props.data}
           margin={{
             top: 20,
             right: 20,

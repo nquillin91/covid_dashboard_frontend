@@ -23,7 +23,9 @@ function App() {
 				<Route exact path="/">
 					<Login setToken={setToken} />
 				</Route>
-		        <Route exact path="/sign-up" component={SignUp} />
+		        <Route exact path="/sign-up">
+		        	<SignUp setToken={setToken} />
+		        </Route>
 			</Switch>
 		)
 	}

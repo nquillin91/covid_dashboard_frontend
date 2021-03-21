@@ -6,35 +6,41 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 //       pv: 4300,
 //       amt: 2100
 
-export default class LineChartComp extends PureComponent {
+interface Props {
+   data: any,
+   uvName: string,
+   pvName: string
+}
+export default class LineChartComp extends PureComponent<Props> {
     constructor(props){
         super(props);
     }
+
     render() {
-        return (
-            <div style={{ width: "100%", height: 600 }}>
-                <ResponsiveContainer>
-                <LineChart
-          width={500}
-          height={300}
-          data={this.props.data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend verticalAlign="top" height={36} />
-          <Line type="monotone" name={this.props.uvName} dataKey="uv" stroke="#82ca9d" />
-          <Line type="monotone" name={this.props.pvName} dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-        </LineChart>  
-                </ResponsiveContainer>
-            </div>
-        )
+      return (
+        <div style={{ width: "100%", height: 600 }}>
+          <ResponsiveContainer>
+            <LineChart
+              width={500}
+              height={300}
+              data={this.props.data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend verticalAlign="top" height={36} />
+              <Line type="monotone" name={this.props.uvName} dataKey="uv" stroke="#82ca9d" />
+              <Line type="monotone" name={this.props.pvName} dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+            </LineChart>  
+          </ResponsiveContainer>
+        </div>
+      )
     }
 }
