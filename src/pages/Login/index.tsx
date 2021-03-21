@@ -62,7 +62,27 @@ export default function Login(props: Props) {
       localStorage.clear();
     }
 
-    props.setToken("TEST_TOKEN");
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "username": email, "password": password })
+    };
+
+    fetch(`https://covid-dashboard-backend-se430.herokuapp.com/login`, requestOptions)
+      .then(response => {
+        response.text().then(text => {
+          const data = text && JSON.parse(text);
+          
+          if (!response.ok) {
+              const error = (data && data.message) || response.statusText;
+              return Promise.reject(error);
+          }
+
+          let tokenStr = 'Bearer ' + data.jwtToken;
+          localStorage.setItem('token', tokenStr);
+          props.setToken(tokenStr);
+        })
+      });
   };
 
   return (
