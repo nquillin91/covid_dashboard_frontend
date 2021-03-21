@@ -9,7 +9,14 @@ export default function RestrictionsData() {
 
   return (
     <div>
-      	Covid Restrictions Page
+      	<Container>
+        <Col md={12} className="mt-4 mb-4">
+          <h3 className="text-center">Covid Restrictions</h3>
+          </Col>
+        <Row>
+          
+        </Row>
+      </Container>
   	</div>
   );
 }
