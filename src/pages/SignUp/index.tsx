@@ -12,9 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 
@@ -81,6 +79,8 @@ export default function SignUp(props: Props) {
           "lastName": lastName,
           "gender": gender,
           "birthDate": birthdate,
+          "phoneNumber": phoneNumber,
+          "zipcode": zipcode,
           "hasPreExistingConditions": hasPreExistingConditions,
           "followingHygieneGuidelines": isFollowingHygieneGuidelines,
           "adheringToPPPGuidelines": isAdheringToPPPGuidelines,
@@ -212,7 +212,7 @@ export default function SignUp(props: Props) {
                 InputLabelProps={{
                   shrink: true,
                 }}
-                onChange={({ target }) => setBirthdate(moment(target.value).format('MM/DD/YYYY'))}
+                onChange={({ target }) => setBirthdate(moment(target.value).format('DD/MM/YYYY'))}
               />
             </Grid>
             <Grid item xs={12} sm={6}>

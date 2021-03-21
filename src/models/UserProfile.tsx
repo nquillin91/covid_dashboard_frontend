@@ -8,14 +8,14 @@ export default class UserProfileModel {
   	phoneNumber: string;
   	zipcode: string;
   	hasPreExistingConditions: boolean;
-  	isFollowingHygieneGuidelines: boolean;
-  	isAdheringToPPPGuidelines: boolean;
+  	followingHygieneGuidelines: boolean;
+  	adheringToPPPGuidelines: boolean;
   	vaccineStatus: string;
   	hasRoommates: boolean;
   	directlyExposedCount: number;
   	indirectlyExposedCount: number;
-  	isFirstResponder: boolean;
-  	isEssentialWorker: boolean;
+  	firstResponder: boolean;
+  	essentialWorker: boolean;
 
     constructor() {
         this.username = '';
@@ -27,13 +27,13 @@ export default class UserProfileModel {
         this.phoneNumber = '';
         this.zipcode = '';
         this.hasPreExistingConditions = false;
-        this.isFollowingHygieneGuidelines = false;
-        this.isAdheringToPPPGuidelines = false;
+        this.followingHygieneGuidelines = false;
+        this.adheringToPPPGuidelines = false;
         this.vaccineStatus = 'Not Vaccinated';
         this.hasRoommates = false;
         this.directlyExposedCount = 0;
         this.indirectlyExposedCount = 0;
-        this.isFirstResponder = false;
-        this.isEssentialWorker = false;
+        this.firstResponder = false;
+        this.essentialWorker = false;
     }
 }
