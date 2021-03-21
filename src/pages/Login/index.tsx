@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 interface Props {
    setToken: Function
 }
-
 export default function Login(props: Props) {
   const classes = useStyles();
 
@@ -95,7 +94,7 @@ export default function Login(props: Props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
