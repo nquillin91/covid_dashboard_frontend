@@ -1,16 +1,16 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import hospitalData from '../../services/HospitalDataService';
 import "./hospitalStyles.css";
+import moment from 'moment';
 
 export default function HospitalData() {
 
   // get latest time update
   const date = new Date();
-  const currentTime = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  const currentTime = moment(date).format("MM/DD/YYYY hh:mm:ss");
 
   // generate random and compacity wait times
   const getRandomNumber = (maximum: number) =>{
@@ -54,7 +54,7 @@ export default function HospitalData() {
 
   return (
     <div>
-      <Container fluid>
+      <Container>
         <Col md={12} className="mt-4 mb-4">
           <h3 className="text-center">Hospital Data: Region 11</h3>
           <p className="text-center">Last Updated: {currentTime}</p>
